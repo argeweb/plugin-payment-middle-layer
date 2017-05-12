@@ -20,6 +20,5 @@ class PaymentMiddleLayerModel(BasicModel):
     user_email = Fields.SearchingHelperProperty(verbose_name=u'付款人', target=u'pay_user', target_field_name=u'email')
     content = Fields.RichTextProperty(verbose_name=u'內容')
     image = Fields.ImageProperty(verbose_name=u'圖片')
-    is_enable = Fields.BooleanProperty(default=True, verbose_name=u'顯示於前台')
-
+    is_enable = Fields.BooleanProperty(default=False, verbose_name=u'顯示於前台')
 
