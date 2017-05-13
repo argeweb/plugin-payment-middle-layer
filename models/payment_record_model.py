@@ -34,4 +34,9 @@ class PaymentRecordModel(BasicModel):
             raise Exception('need Controller')
         if payment_type is None:
             payment_type = self.payment_type.get()
-        return '%s?payment_record=%s' % (controller.uri(payment_type.pay_uri), controller.util.encode_key(self))
+        try:
+            url = controller.uri(payment_type.pay_uri)
+        except:
+            url = payment_type.pay_uri
+
+        return '%s?payment_record=%s' % (url, controller.util.encode_key(self))
