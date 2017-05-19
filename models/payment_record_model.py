@@ -15,6 +15,7 @@ from payment_type_model import PaymentTypeModel
 class PaymentRecordModel(BasicModel):
     name = Fields.StringProperty(verbose_name=u'識別名稱')
     title = Fields.StringProperty(verbose_name=u'付款記錄摘要')
+    order_no = Fields.StringProperty(verbose_name=u'訂單編號', default=u'')
     detail = Fields.RichTextProperty(verbose_name=u'付款記錄細節')
     amount = Fields.FloatProperty(verbose_name=u'應付款金額')
     user_object = Fields.KeyProperty(verbose_name=u'付款人', kind=ApplicationUserModel)

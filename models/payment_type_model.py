@@ -17,7 +17,7 @@ class PaymentTypeModel(BasicModel):
     pay_uri = Fields.StringProperty(verbose_name=u'Pay URI')
 
     @classmethod
-    def get_or_create(cls, name, title, pay_uri):
+    def get_or_create(cls, name, title=None, pay_uri=None):
         item = cls.find_by_name(name)
         if item is None:
             item = cls()

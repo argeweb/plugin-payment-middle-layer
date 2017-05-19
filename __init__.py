@@ -7,9 +7,9 @@
 # Date: 2017/5/10.
 
 from argeweb import ViewDatastore
-from models.payment_middle_layer_model import PaymentMiddleLayerModel
+from models.payment_type_model import PaymentTypeModel
 
-ViewDatastore.register('payment_middle_layer', PaymentMiddleLayerModel.find_by_name)
+ViewDatastore.register('payment_type', PaymentTypeModel.find_all_by_properties)
 
 plugins_helper = {
     'title': u'付款中間層',
