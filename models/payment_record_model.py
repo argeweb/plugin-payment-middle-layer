@@ -29,7 +29,6 @@ class PaymentRecordModel(BasicModel):
 
     payment_type = Fields.KeyProperty(verbose_name=u'付款方式', kind=PaymentTypeModel)
     payment_status = Fields.CategoryProperty(verbose_name=u'付款狀態', kind=PaymentStatusModel)
-    is_enable = Fields.BooleanProperty(default=True, verbose_name=u'顯示於前台')
 
     def get_pay_url(self, controller, payment_type=None):
         if controller is None:

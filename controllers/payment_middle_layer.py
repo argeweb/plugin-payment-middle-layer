@@ -19,13 +19,6 @@ class PaymentMiddleLayer(Controller):
         display_in_list = ('title', 'name', 'image', 'is_enable', 'category')
 
     @route
-    def gen_payment_record(self):
-        from ..models.payment_record_model import PaymentRecordModel
-        from ..models.payment_type_model import PaymentTypeModel
-        payment_record_name = self.params.get_string('payment_record')
-        PaymentRecordModel.find_by_name(payment_record_name)
-
-    @route
     def taskqueue_after_install(self):
         from ..models.payment_status_model import PaymentStatusModel
         PaymentStatusModel.create_default_status()
