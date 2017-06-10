@@ -41,6 +41,16 @@ plugins_helper = {
                 {'action': 'delete', 'name': u'刪除付款方式'},
             ]
         },
+        'payment_record': {
+            'group': u'付款記錄',
+            'actions': [
+                {'action': 'list', 'name': u'付款記錄'},
+                {'action': 'add', 'name': u'新增付款記錄'},
+                {'action': 'edit', 'name': u'編輯付款記錄'},
+                {'action': 'view', 'name': u'檢視付款記錄'},
+                {'action': 'delete', 'name': u'刪除付款記錄'},
+            ]
+        },
     },
     'install_uri': 'payment_middle_layer:payment_middle_layer:after_install'
 }

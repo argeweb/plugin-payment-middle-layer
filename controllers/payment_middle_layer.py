@@ -12,9 +12,6 @@ from argeweb.components.search import Search
 
 
 class PaymentMiddleLayer(Controller):
-    class Meta:
-        components = (scaffold.Scaffolding, Pagination, Search)
-
     class Scaffold:
         display_in_list = ('title', 'name', 'image', 'is_enable', 'category')
 

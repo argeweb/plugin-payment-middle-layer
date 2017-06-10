@@ -23,9 +23,9 @@ class PaymentRecordModel(BasicModel):
     user = Fields.SearchingHelperProperty(verbose_name=u'付款人', target=u'user_object', target_field_name=u'name')
     user_email = Fields.SearchingHelperProperty(verbose_name=u'付款人', target=u'user_object', target_field_name=u'email')
 
-    source_uri = Fields.HiddenProperty(verbose_name=u'來源 URI')
     source_params = Fields.HiddenProperty(verbose_name=u'來源參數')
     source_ndb_key = Fields.HiddenProperty(verbose_name=u'來源物件 Key')
+    callback_uri = Fields.HiddenProperty(verbose_name=u'來源 URI')
 
     payment_type = Fields.KeyProperty(verbose_name=u'付款方式', kind=PaymentTypeModel)
     payment_status = Fields.CategoryProperty(verbose_name=u'付款狀態', kind=PaymentStatusModel)
@@ -47,10 +47,10 @@ class PaymentRecordModel(BasicModel):
             raise Exception('need Controller')
         try:
             return controller.uri(
-                self.source_uri, payment_record=controller.util.encode_key(self), source_record=self.source_ndb_key)
+                self.callback_uri, payment_record=controller.util.encode_key(self), source_record=self.source_ndb_key)
         except:
             return '%s?payment_record=%s&source_record=%s' % (
-                self.source_uri, controller.util.encode_key(self), self.source_ndb_key)
+                self.callback_uri, controller.util.encode_key(self), self.source_ndb_key)
 
     def set_state(self, payment_status_name):
         self.payment_status = PaymentStatusModel.find_by_name(payment_status_name).key

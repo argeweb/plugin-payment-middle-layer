@@ -14,9 +14,6 @@ from argeweb.components.search import Search
 
 
 class PaymentType(Controller):
-    class Meta:
-        components = (scaffold.Scaffolding, Pagination, Search)
-
     @route_menu(list_name=u'backend', text=u'付款方式', sort=1321, group=u'產品銷售', need_hr=True)
     def admin_list(self):
         return scaffold.list(self)

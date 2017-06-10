@@ -14,9 +14,6 @@ from argeweb.components.search import Search
 
 
 class PaymentRecord(Controller):
-    class Meta:
-        components = (scaffold.Scaffolding, Pagination, Search)
-
     @route_menu(list_name=u'backend', text=u'付款記錄', sort=9803, icon='users', group=u'帳號管理')
     def admin_list(self):
         return scaffold.list(self)
