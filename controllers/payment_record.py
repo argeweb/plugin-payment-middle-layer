@@ -7,13 +7,13 @@
 # Date: 2017/3/1.
 
 
-from argeweb import Controller, scaffold, route_menu, route_with, route
-from argeweb.components.pagination import Pagination
-from argeweb.components.csrf import CSRF, csrf_protect
-from argeweb.components.search import Search
+from argeweb import Controller, scaffold, route_menu
 
 
 class PaymentRecord(Controller):
-    @route_menu(list_name=u'backend', text=u'付款記錄', sort=9803, icon='users', group=u'帳號管理')
+    class Scaffold:
+        display_in_list = ['created', 'title', 'detail', 'amount', 'user', 'payment_status']
+
+    @route_menu(list_name=u'system', group=u'金流管理', text=u'付款記錄', sort=891)
     def admin_list(self):
         return scaffold.list(self)

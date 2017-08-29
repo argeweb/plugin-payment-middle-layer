@@ -1,0 +1,5 @@
+- kind: PaymentTypeModel
+  properties:
+  - name: is_enable
+  - name: sort
+    direction: desc
